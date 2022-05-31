@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.keep.dao.CoachDao">
+    <resultMap id="CoachMap" type="com.example.keep.entity.Coach">
+        <result property="id" column="id" jdbcType="INTEGER" />
+        <result property="username" column="username" jdbcType="VARCHAR" />
+        <result property="password" column="password" jdbcType="VARCHAR" />
+        <result property="name" column="name" jdbcType="VARCHAR" />
+        <result property="sex" column="sex" jdbcType="CHAR" />
+    </resultMap>
+
+    <select id="findAll" resultMap="CoachMap">
+        select *
+        from coach;
+    </select>
+
+    <select id="findByUsername" resultMap="CoachMap">
+        select
+            *
+        from coach
+        where username like CONCAT('%', #{username}, '%') OR name like CONCAT('%', #{username}, '%')
+    </select>
+
+    <insert id="addCoach" keyProperty="id" useGeneratedKeys="true">
+        insert
+        into coach(username, password, name, sex)
+        values(#{username},#{password}, #{name}, #{sex})
+    </insert>
+
+    <delete id="deleteById">
+        delete
+        from coach
+        where id=#{id}
+    </delete>
+
+    <update id="updateById" keyProperty="id" useGeneratedKeys="true">
+        update coach
+        set username=#{username}, password=#{password}, name=#{name}, sex=#{sex}
+        where id=#{id}
+    </update>
+
+</mapper>
