@@ -23,7 +23,8 @@
           {name: '/userManage', navItem: '用户管理'},
           {name: '/coachManage', navItem: '教练管理'},
           {name: '/courseManage', navItem: '课程管理'},
-          {name: '/orderManage', navItem: '订单管理'}
+          {name: '/orderManage', navItem: '订单管理'},
+          {name: '/commentManage', navItem: '评论管理'}
         ]
       }
     }

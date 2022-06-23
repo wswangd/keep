@@ -5,7 +5,7 @@
   @close="clear">
     <el-form :model="form">
       <el-form-item label="Id" :label-width="formLabelWidth">
-        <span v-model="form.id">{{form.id}}</span>
+        <span>{{form.id}}</span>
       </el-form-item>
       <el-form-item label="用户名" :label-width="formLabelWidth">
         <el-input v-model="form.username" auto-complete="off"></el-input>

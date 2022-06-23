@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-input
-        placeholder="请输入用户名或姓名"
+        placeholder="请输入课程编号"
         v-model="input"
         clearable
         style="width: 400px; margin-right: 10px">
@@ -12,7 +12,7 @@
 
 <script>
   export default {
-    name: 'CoachSearchBar',
+    name: 'CommentSearchBar',
     data() {
       return {
         input: ''

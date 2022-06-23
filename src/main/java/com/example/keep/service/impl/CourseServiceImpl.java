@@ -25,7 +25,11 @@ public class CourseServiceImpl implements CourseService {
     public int deleteById(int id) {
         return courseDao.deleteById(id);
     }
-    public int updateById(int id) {
-        return courseDao.updateById(id);
+    public int updateById(Course course) {
+        return courseDao.updateById(course);
+    }
+
+    public Course findById(int id) {
+        return courseDao.findById(id);
     }
 }

@@ -9,5 +9,6 @@ public interface CourseService {
     List<Course> findByName(String name);
     int addCourse(Course course);
     int deleteById(int id);
-    int updateById(int id);
+    int updateById(Course course);
+    Course findById(int id);
 }

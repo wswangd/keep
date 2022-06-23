@@ -7,6 +7,8 @@ import Home from '@/components/Home'
 import UserManage from '@/components/user/UserManage'
 import CoachManage from '@/components/coach/CoachManage'
 import CourseManage from '@/components/course/CourseManage'
+import OrderManage from '@/components/order/OrderManage'
+import CommentManage from '@/components/comment/CommentManage'
 
 Vue.use(Router)
 
@@ -39,6 +41,16 @@ export default new Router({
           path: '/courseManage',
           name: 'CourseManage',
           component: CourseManage
+        },
+        {
+          path: '/orderManage',
+          name: 'OrderManage',
+          component: OrderManage
+        },
+        {
+          path: '/commentManage',
+          name: 'CommentManage',
+          component: CommentManage
         }
       ]
     },

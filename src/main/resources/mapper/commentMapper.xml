@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.keep.dao.CommentDao">
+    <resultMap id="CommentMap" type="com.example.keep.entity.Comment">
+        <result property="id" column="id" jdbcType="INTEGER" />
+        <result property="user_id" column="user_id" jdbcType="INTEGER" />
+        <result property="user_name" column="user_name" jdbcType="VARCHAR" />
+        <result property="course_id" column="course_id" jdbcType="INTEGER" />
+        <result property="context" column="context" jdbcType="VARCHAR" />
+        <result property="date" column="date" jdbcType="DATE" />
+    </resultMap>
+
+    <select id="findAll" resultMap="CommentMap">
+        select *
+        from keep.comment
+    </select>
+
+    <select id="findByCourseId" resultMap="CommentMap">
+        select
+            *
+        from keep.comment
+        where course_id = #{id}
+    </select>
+
+    <delete id="deleteById">
+        delete
+        from keep.comment
+        where id=#{id}
+    </delete>
+
+    <insert id="addComment" keyProperty="id" useGeneratedKeys="true">
+        insert
+        into keep.comment(user_id, user_name, course_id, context, date)
+        values (#{user_id}, #{user_name}, #{course_id}, #{context}, #{date})
+    </insert>
+
+
+</mapper>

@@ -25,6 +25,11 @@ public class CourseController {
         return courseService.findByName(name);
     }
 
+    @GetMapping("/id/{id}")
+    public Course findById(@PathVariable int id) {
+        return courseService.findById(id);
+    }
+
     @PostMapping
     @CrossOrigin
     public int addCourse(@RequestBody Course course) {
@@ -39,7 +44,7 @@ public class CourseController {
 
     @PutMapping
     @CrossOrigin
-    public int updateById(int id) {
-        return courseService.updateById(id);
+    public int updateById(@RequestBody Course course) {
+        return courseService.updateById(course);
     }
 }

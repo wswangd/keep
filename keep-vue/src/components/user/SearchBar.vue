@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-input
-        placeholder="请输入用户名"
+        placeholder="请输入用户Id"
         v-model="input"
         clearable
         style="width: 400px; margin-right: 10px">

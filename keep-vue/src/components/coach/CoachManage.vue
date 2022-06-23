@@ -1,39 +1,48 @@
 <template>
-    <div>
-        <el-button type="primary" @click="addCoach">添加教练</el-button>        <coach-search-bar @onSearch='searchCoach' ref="coachSearchBar"></coach-search-bar>
-        <coach-add-form @onAdd="loadCoach" ref="addCoach"></coach-add-form>
+    <div class="window">
+        <div class="add-search">
+            <div class="add">
+            <el-button type="primary" @click="addCoach">添加教练</el-button> 
+            <coach-add-form @onAdd="loadCoach" ref="addCoach"></coach-add-form>
+        </div>
+        <div class="search">
+            <coach-search-bar @onSearch='searchCoach' ref="coachSearchBar"></coach-search-bar>
+        </div>
+        </div>
+        
         <el-table
+        class="table"
         :data="coachTable"
         stripe
         style="width: 100%">
             <el-table-column
                 prop="id"
                 label="id"
-                width="300">
+                width="250">
             </el-table-column>
             <el-table-column
                 prop="name"
                 label="姓名"
-                width="300">
+                width="250">
             </el-table-column>
             <el-table-column
                 prop="sex"
                 label="性别"
-                width="300">
+                width="250">
             </el-table-column>
             <el-table-column
                 prop="username"
                 label="账号"
-                width="300">
+                width="250">
             </el-table-column>
             <el-table-column
                 prop="password"
                 label="密码"
-                width="300">
+                width="250">
             </el-table-column>
             <el-table-column
                 label="操作"
-                width="300">
+                width="250">
             <template slot-scope="scope">
                 <el-button @click="editCoach(scope.row)" type="primary" size="small">修改</el-button>
                 <el-button @click="deleteById(scope.row)" type="danger" size="small">删除</el-button>
@@ -130,5 +139,19 @@
 </script>
 
 <style scoped>
-
+.window {
+    margin-top: 1%;
+}
+.add-search {
+    display: flex;
+}
+.add {
+    margin-left: 50px;
+}
+.search {
+    margin-left: 20%;
+}
+.table {
+    margin-top: 1%;
+}
 </style>

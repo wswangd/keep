@@ -27,6 +27,12 @@
         where name like CONCAT('%', #{name}, '%')
     </select>
 
+    <select id="findById" resultMap="CourseMap">
+        select *
+        from course
+        where id=#{id}
+    </select>
+
     <insert id="addCourse" keyProperty="id" useGeneratedKeys="true">
         insert
         into course(name, coach_id, coach, classes, introduction, price, picture, video)
@@ -41,7 +47,7 @@
 
     <update id="updateById" keyProperty="id" useGeneratedKeys="true">
         update course
-        set username=#{name}, coach_id=#{coach_id}, coach=#{coach}, classes=#{classes}, introduction=#{introduction}, price=#{price}, picture=#{picture}, video=#{video}
+        set name=#{name}, coach_id=#{coach_id}, coach=#{coach}, classes=#{classes}, introduction=#{introduction}, price=#{price}, picture=#{picture}, video=#{video}
         where id=#{id}
     </update>
 
